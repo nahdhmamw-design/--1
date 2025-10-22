@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HAMAMO — دليل الأدوية (v2 Smart Pro)</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">HM</div>
+        <div>
+          <div class="title">HAMAMO</div>
+          <div style="color:#6b7280;font-size:13px">دليل الأدوية — نسخة v2 ذكية</div>
+        </div>
+      </div>
+
+      <div style="flex:1;margin:0 16px">
+        <div class="searchBar autocomplete" role="search">
+          <input id="searchInput" placeholder="ابحث عن دواء، مادة فعالة، أو شكل صيدلي..." aria-label="بحث" />
+          <div id="suggestionsBox" class="suggestions" style="display:none"></div>
+          <div class="controls">
+            <button id="clearBtn">مسح</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="toggleTheme" onclick="document.body.classList.toggle('dark')">وضع مظلم</button>
+        <button id="toggleLang" onclick="alert('النسخة الحالية عربية؛ سيتم دعم الإنجليزية لاحقاً.')">EN</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <aside class="sidebar" aria-label="الأشكال الصيدلية">
+        <h3>الأشكال الصيدلية</h3>
+        <div class="categories" id="formsList"></div>
+      </aside>
+
+      <main class="main" aria-live="polite">
+        <div class="controls-top">
+          <div id="resultsCount">عرض 0 نتيجة</div>
+          <div class="sort-controls">
+            <label>ترتيب:</label>
+            <select id="sortSelect">
+              <option value="alpha">أ — ي</option>
+              <option value="alpha_rev">ي — أ</option>
+              <option value="form">حسب الشكل الصيدلي</option>
+            </select>
+          </div>
+        </div>
+
+        <section class="results" id="resultsGrid"></section>
+      </main>
+
+      <aside class="detail" id="detailPane">
+        <h3>تفاصيل الدواء</h3>
+        <div id="detailContent">اختر دواء لعرض التفاصيل</div>
+      </aside>
+    </div>
+
+    <footer class="footer">ملاحظة: المعلومات لأغراض تعليمية فقط — استشر الطبيب أو الصيدلي.</footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
